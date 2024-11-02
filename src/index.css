@@ -1,13 +1,382 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav {
+  display: flex;
+  gap: 10px;
+}
+
+header nav a,
+header nav button {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+header nav a:hover,
+header nav button:hover {
+  text-decoration: underline;
+}
+
+.App {
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product-item button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-item button:hover {
+  background-color: #45a049;
+}
+
+/* Filter and search bar styling */
+.product-filter,
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-filter button {
+  background-color: #f0f2f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.product-filter button:hover {
+  background-color: #ddd;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Cart and Auth components styling */
+.shopping-cart,
+.auth {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shopping-cart .cart-item,
+.auth input,
+.auth button {
+  margin-bottom: 10px;
+}
+
+.shopping-cart input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.auth input,
+.auth button {
+  width: 100%;
+  padding: 10px;
+}
+
+.auth button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.auth button:hover {
+  background-color: #45a049;
+}
+
+/* Review system styling */
+.review-system textarea,
+.review-system input,
+.review-system button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.review-system button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.review-system button:hover {
+  background-color: #45a049;
+}
+
+/* src/styles.css */
+
+/* Shopping Cart Styles */
+.shopping-cart {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.cart-item h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.cart-item p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cart-item div {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.cart-item button:hover {
+  background-color: #45a049;
+}
+
+.cart-item input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+h2 {
+  text-align: right;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+}
+
+/* src/styles.css */
+
+/* Admin Dashboard Styles */
+.admin-dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+}
+
+.admin-dashboard form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-dashboard form label {
+  font-weight: bold;
+}
+
+input,
+select,
+.admin-dashboard form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-dashboard form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-dashboard form button:hover {
+  background-color: #45a049;
+}
+
+.product-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.product-list .product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-list .product-item h3,
+.product-list .product-item p {
+  margin: 0;
+}
+
+.product-list .product-item img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.product-list .product-item button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.product-list .product-item button:hover {
+  background-color: #d32f2f;
+}
+
+
+/* src/styles.css */
+
+/* Review System Styles */
+.review-system {
+  margin-top: 20px;
+}
+
+.review-system form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-system form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-system form label {
+  font-weight: bold;
+}
+
+.review-system form input,
+.review-system form textarea,
+.review-system form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.review-system form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.review-system form button:hover {
+  background-color: #45a049;
+}
+
+.reviews-list {
+  margin-top: 10px;
+}
+
+.review-item {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.review-item p {
+  margin: 0;
 }
